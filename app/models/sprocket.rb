@@ -1,0 +1,3 @@
+class Sprocket < Part
+  
+end

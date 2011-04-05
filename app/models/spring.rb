@@ -1,0 +1,3 @@
+class Spring < Part
+  
+end
