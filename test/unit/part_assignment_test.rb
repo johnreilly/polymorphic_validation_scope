@@ -95,7 +95,7 @@ class PartAssignmentTest < ActiveSupport::TestCase
     assert good_assignment.valid?
     assert !bad_assignment.valid?, "bad assignment expected to be invalid, but wasn't!"
 
-    assert spring_part.errors.include?(:name) # should be unique
+    assert bad_assignment.errors.include?(:part) # should be unique
 
     assert_equal 1, container.parts.count
   end
@@ -107,14 +107,14 @@ class PartAssignmentTest < ActiveSupport::TestCase
     spring_part   = Spring.new(:name => "happy part")
 
     # Add the parts
-    container1.part_assignments.create(:part => sprocket_part)
-    container2.part_assignments.create(:part => spring_part)
+    assignment1 = container1.part_assignments.create(:part => sprocket_part)
+    assignment2 = container2.part_assignments.create(:part => spring_part)
     container1.reload
     container2.reload
 
     # Both assignments should be OK
-    assert sprocket_part.valid?
-    assert spring_part.valid?
+    assert assignment1.valid?
+    assert assignment2.valid?
 
     assert_equal 1, container1.parts.count
     assert_equal 1, container2.parts.count
