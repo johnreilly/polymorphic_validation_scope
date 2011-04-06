@@ -50,3 +50,7 @@ Run `rake test` to run the tests.
 
 
 Any ideas?
+
+# Solutions
+
+* [ryanb](https://github.com/ryanb) suggests moving the validation into PartAssignment instead of Part. See [this branch](https://github.com/johnreilly/polymorphic_validation_scope/tree/ryanb).
